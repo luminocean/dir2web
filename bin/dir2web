@@ -8,7 +8,7 @@ var program = require('commander');
 var dir2web = require('../lib/dir2web');
 
 program
-  .version('1.1.0')
+  .version('1.2.0')
   .option('-d, --directory [directory]', 'The directory you want to start a web server. Default to current working directory.')
   .option('-a, --address [address]', 'The ip address you want to start the server on. Default to localhost.')
   .option('-p, --port [port]', 'The server port. Default to 3000.')
