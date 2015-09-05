@@ -3,12 +3,21 @@
 // 主要负责启动服务器，执行服务器的主逻辑（封装在lib/dir2web.js中）
 
 var http = require('http');
+var path = require('path');
+var program = require('commander');
 var dir2web = require('../lib/dir2web');
 
+program
+  .version('1.1.0')
+  .option('-d, --directory [directory]', 'The directory you want to start a web server. Default to current working directory.')
+  .option('-a, --address [address]', 'The ip address you want to start the server on. Default to localhost.')
+  .option('-p, --port [port]', 'The server port. Default to 3000.')
+  .parse(process.argv);
+
 // 输入参数
-var dir = '.';
-var address = '127.0.0.1';
-var port = 3000;
+var dir = program.directory || '.';
+var address = program.address || '127.0.0.1';
+var port = parseInt(program.port) || 3000;
 
 // 初始化
 dir2web.init({
@@ -16,8 +25,12 @@ dir2web.init({
 });
 
 // 启动服务器
-http.createServer(dir2web).listen(port, address);
+http.createServer(dir2web).listen(port, address, function(){
+  var absDirPath = path.resolve(process.cwd(), dir);
+  console.log('已将目录'+absDirPath+' 映射到 '+address+':'+port);
+});
 
-process.on('UncaughtException', function(err){
+// 简单粗暴地错误捕获
+process.on('uncaughtException', function(err){
   console.error(err.stack);
 });
