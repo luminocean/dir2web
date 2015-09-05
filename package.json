@@ -1,8 +1,8 @@
 {
   "name": "dir2web",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "",
-  "bin":"bin/dir2web",
+  "bin": "bin/dir2web",
   "main": "lib/dir2web.js",
   "dependencies": {
     "commander": "^2.8.1",
