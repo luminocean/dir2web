@@ -1,0 +1,19 @@
+#! /usr/bin/env node
+// 本文件为dir2web的可执行入口
+// 主要负责启动服务器，执行服务器的主逻辑（封装在lib/dir2web.js中）
+
+var http = require('http');
+var dir2web = require('../lib/dir2web');
+
+// 输入参数
+var dir = '.';
+var address = '127.0.0.1';
+var port = 3000;
+
+// 初始化
+dir2web.init({
+  'dir':dir
+});
+
+// 启动服务器
+http.createServer(dir2web).listen(port, address);
