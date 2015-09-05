@@ -17,3 +17,7 @@ dir2web.init({
 
 // 启动服务器
 http.createServer(dir2web).listen(port, address);
+
+process.on('UncaughtException', function(err){
+  console.error(err.stack);
+});
