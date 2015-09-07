@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%=dirName%></title>
+  </head>
+  <body>
+    <div id="dirTree">
+      <% files.forEach(function(file){ %>
+      <p class="dirItem">
+        <a href="./<%=file.fileName%><%=(file.isDir?'/':'')%>"><%=file.fileName%></a>
+      </p>
+      <% }) %>
+    </div>
+  </body>
+</html>
