@@ -9,7 +9,7 @@ var program = require('commander');
 var dir2web = require('../lib/dir2web');
 
 program
-  .version('1.3.0')
+  .version('1.3.1')
   .option('-d, --directory [directory]', 'The directory you want to start a web server. Default to current working directory.')
   .option('-a, --address [address]', 'The ip address you want to start the server with. Default to all ipv4 addresses you have.')
   .option('-p, --port [port]', 'The server port. Default to 3000.')

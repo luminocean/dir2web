@@ -1,7 +1,7 @@
 {
   "name": "dir2web",
   "version": "1.3.0",
-  "description": "",
+  "description": "A tool which makes your directory a http server.",
   "bin": "bin/dir2web",
   "main": "lib/dir2web.js",
   "dependencies": {
